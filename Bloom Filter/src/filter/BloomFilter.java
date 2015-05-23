@@ -21,13 +21,17 @@ public class BloomFilter implements Serializable {
 	 * Number of hash functions registered with this object.
 	 */
 	public int numHashes;
+	/**
+	 * Default size for a new BloomFilter.
+	 */
+	public static int DEFAULT_SIZE = 100;
 
 	/**
 	 * New BloomFilter with default size of hash 100.
 	 */
 	public BloomFilter() {
-		filter = new byte[100];
-		size = 100;
+		filter = new byte[DEFAULT_SIZE];
+		size = DEFAULT_SIZE;
 		PRINT = true;
 		numHashes = 0;
 		hashes = new ArrayList<HashFunction>();
@@ -48,9 +52,9 @@ public class BloomFilter implements Serializable {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		//Create instances of hash functions
-		Hash1 one = new Hash1("One", 100);
-		Hash2 two = new Hash2("Two", 100);
-		Hash3 three = new Hash3("Three", 100);
+		Hash1 one = new Hash1("One", DEFAULT_SIZE);
+		Hash2 two = new Hash2("Two", DEFAULT_SIZE);
+		Hash3 three = new Hash3("Three", DEFAULT_SIZE);
 
 		BloomFilter t = new BloomFilter();
 
